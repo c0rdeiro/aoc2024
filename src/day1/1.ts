@@ -1,4 +1,4 @@
-import { readLists } from "../utils/readLists";
+import { readLists } from "./readLists";
 
 const getTotalDistance = (listA: number[], listB: number[]) => {
   const sortedListA = listA.sort((a, b) => a - b);

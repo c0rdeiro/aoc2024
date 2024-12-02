@@ -1,4 +1,4 @@
-import { readLists } from "../utils/readLists";
+import { readLists } from "./readLists";
 
 const getSimilarityScore = (listA: number[], listB: number[]) => {
   const frequencyLeftList: Map<number, number> = new Map();
