@@ -1,4 +1,4 @@
-import fs from "fs";
+import { readLists } from "../utils/readLists";
 
 const getTotalDistance = (listA: number[], listB: number[]) => {
   const sortedListA = listA.sort((a, b) => a - b);
@@ -12,21 +12,5 @@ const getTotalDistance = (listA: number[], listB: number[]) => {
   return sum;
 };
 
-try {
-  const data = fs.readFileSync("./src/day1/1.input", "utf-8");
-
-  const lines = data.trim().split("\n"); // Remove extra whitespace and split by line
-
-  const col1List: number[] = [];
-  const col2List: number[] = [];
-
-  lines.forEach((line) => {
-    const [col1, col2] = line.split(/\s+/).map(Number); // Split and parse numbers
-    col1List.push(col1);
-    col2List.push(col2);
-  });
-
-  console.log(getTotalDistance(col1List, col2List));
-} catch (error) {
-  console.error("Error reading the file:", error);
-}
+const { col1List, col2List } = readLists("./src/day1/1.input");
+console.log("total distance", getTotalDistance(col1List, col2List));
